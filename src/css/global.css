@@ -69,7 +69,7 @@ p {
   overflow: hidden;
 }
 /* #next ::after {
-    content: url("../Assets/Icon\ feather-arrow-right.svg");
+    content: url("../assets/Icon\ feather-arrow-right.svg");
     padding-left: 0.5rem;
     display: inline-block;
     width: 30px;
@@ -77,13 +77,13 @@ p {
 #next-right-arrow {
   width: 22px;
   height: 18px;
-  content: url("../Assets/feather-arrow-right.svg");
+  content: url("../assets/feather-arrow-right.svg");
   margin-left: 0.5rem;
 }
 #previous-left-arrow {
   width: 22px;
   height: 18px;
-  content: url("../Assets/feather-arrow-left.svg");
+  content: url("../assets/feather-arrow-left.svg");
   margin-right: 0.5rem;
 }
 
@@ -110,7 +110,7 @@ input {
   height: 400px;
 }
 .external-link {
-  content: url("../Assets/external-link.svg");
+  content: url("../assets/external-link.svg");
   width: 24px;
   height: 24px;
 }
