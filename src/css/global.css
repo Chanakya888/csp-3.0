@@ -1,0 +1,197 @@
+@font-face {
+  font-family: SchynderCondensed;
+  src: local("Schynder"), url(../assets/fonts/SchnyderCondMLight.ttf);
+  -webkit-font-smoothing: antialiased;
+}
+@font-face {
+  font-family: NeueMontreal;
+  src: local("NeueMontreal"), url(../assets/fonts/NeueMontreal-Regular.otf);
+  -webkit-font-smoothing: antialiased;
+}
+@font-face {
+  font-family: NeueMontreal;
+  src: local("NeueMontreal"), url(../assets/fonts/NeueMontreal-Bold.otf);
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+h1 {
+  font-family: SchynderCondensed;
+}
+h2 {
+  font-family: SchynderCondensed;
+}
+p {
+  font-family: NeueMontreal;
+  font-size: 18px;
+  opacity: 0.5;
+}
+.navbar-font {
+  font-family: SchynderCondensed;
+  font-size: 20px;
+}
+.subtitle-text {
+  font-family: NeueMontreal;
+  font-weight: bold;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 1;
+}
+.announcements a {
+  color: #003290;
+  text-decoration: underline;
+  display: block;
+}
+.richtext p {
+  margin-bottom: 1rem;
+}
+.richtextExperience li {
+  list-style: none;
+}
+.button-text {
+  font-family: SchynderCondensed;
+  font-size: 24px;
+  opacity: 1;
+  text-transform: capitalize;
+}
+.top-padding-for-each-page {
+  @apply pt-16;
+}
+.subtitle-text.investment-customer-text {
+  color: black !important;
+  opacity: 0.4;
+}
+.subtitle-text.get-in-touch-text {
+  color: white;
+}
+.accordionContent {
+  max-height: 0;
+  overflow: hidden;
+}
+/* #next ::after {
+    content: url("../Assets/Icon\ feather-arrow-right.svg");
+    padding-left: 0.5rem;
+    display: inline-block;
+    width: 30px;
+  } */
+#next-right-arrow {
+  width: 22px;
+  height: 18px;
+  content: url("../Assets/feather-arrow-right.svg");
+  margin-left: 0.5rem;
+}
+#previous-left-arrow {
+  width: 22px;
+  height: 18px;
+  content: url("../Assets/feather-arrow-left.svg");
+  margin-right: 0.5rem;
+}
+
+.homepage-image {
+  width: 350px;
+  height: 420px;
+}
+input {
+  font-family: SchynderCondensed;
+  @apply text-4xl;
+}
+.height-and-width-of-hifen {
+  height: 2px;
+  min-width: 0.4rem;
+}
+.width-wrapper {
+  @apply px-6;
+}
+.paragraph-width-container-for-templates {
+  @apply w-full;
+}
+.image-of-team-member {
+  width: 100%;
+  height: 400px;
+}
+.external-link {
+  content: url("../Assets/external-link.svg");
+  width: 24px;
+  height: 24px;
+}
+.team-grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 4rem;
+  grid-auto-rows: auto;
+}
+.investment-image {
+  object-fit: contain;
+}
+/* sm screen */
+@screen sm {
+  .image-of-team-member {
+    width: 350px;
+    height: 400px;
+  }
+}
+/* md screen */
+@screen md {
+  .width-wrapper {
+    @apply px-10;
+  }
+  .paragraph-width-container-for-templates {
+    @apply w-11/12;
+  }
+  .top-padding-for-each-page {
+    @apply pt-24;
+  }
+  .team-grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 4rem;
+    grid-row-gap: 4rem;
+  }
+  .homepage-image {
+    width: 500px;
+    height: 420px;
+  }
+  .paragraph-width-wrapper {
+    @apply w-8/12;
+  }
+}
+/* lg screen */
+@screen lg {
+  .image-of-team-member {
+    width: 400px;
+    height: 450px;
+  }
+  .homepage-image {
+    width: 650px;
+    height: 480px;
+  }
+  .width-wrapper {
+    @apply pr-20;
+  }
+}
+/* xl screen */
+@screen xl {
+  .paragraph-width-container {
+    @apply w-5/12;
+  }
+  .width-wrapper {
+    @apply px-48;
+  }
+  .width-wrapper-fullscreen {
+    @apply px-10;
+  }
+  .top-padding-for-each-page {
+    @apply pt-40;
+  }
+  .team-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 2rem;
+  }
+  .overlay-rectangle {
+    @apply bg-primary;
+    width: 650px;
+    height: 480px;
+    @apply absolute;
+    bottom: 0;
+  }
+}

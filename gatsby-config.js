@@ -5,6 +5,13 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `ytqul2s2r35l`,
+        accessToken: `HPQcLed-8StdwZ69ie0xWV74JoGZqntnHgLbQm4aLh0`,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -14,6 +21,8 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-postcss`,
+    `gatsby-plugin-transition-link`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
