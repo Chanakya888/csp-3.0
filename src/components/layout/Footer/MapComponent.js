@@ -3,8 +3,8 @@ import MapGL, { Marker } from "react-map-gl"
 import "mapbox-gl/src/css/mapbox-gl.css"
 const MapComponent = () => {
   const [viewport, setViewport] = useState({
-    latitude: 28.564718,
-    longitude: 77.200325,
+    latitude: 1.27949,
+    longitude: 103.84919,
     zoom: 10,
     minzoom: 9,
     maxzoom: 10,
@@ -22,7 +22,7 @@ const MapComponent = () => {
         mapStyle="mapbox://styles/chanakya888/ckbgwn5wy2kox1iryggn43a0n"
         onViewportChange={viewport => setViewport(viewport)}
       >
-        <Marker latitude={28.564718} longitude={77.200325}>
+        <Marker latitude={1.27949} longitude={103.84919}>
           <h1>Marker is here</h1>
         </Marker>
       </MapGL>
