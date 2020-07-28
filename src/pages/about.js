@@ -5,15 +5,15 @@ import GeneralQuestionSection from "../homepage-sections/GeneralQuestionSection"
 import Layout from "../components/layout/Layout"
 const AboutPage = () => {
   return (
-    <Layout>
-      <div className="bg-primary">
+    <div className="bg-primary">
+      <Layout>
         <AboutAboutSection />
         <AboutAreasOfInvestment />
         <div>
           <GeneralQuestionSection />
         </div>
-      </div>
-    </Layout>
+      </Layout>
+    </div>
   )
 }
 

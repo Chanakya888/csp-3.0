@@ -3,10 +3,10 @@ import Subtitle from "../components/Subtitle"
 import DefaultButton from "../components/DefaultButton"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import Img from "gatsby-image"
-// import { gsap } from "gsap"
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 
-// gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger)
 const AboutSection = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -41,6 +41,46 @@ const AboutSection = () => {
       }
     }
   `)
+  // Animations start
+  const duration = 1.5
+  useEffect(() => {
+    gsap.fromTo(
+      "#overlay-1",
+      { height: "500px" },
+      {
+        height: "0px",
+        duration: duration,
+        ease: "expo.out",
+      }
+    )
+    let t1 = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#overlay-2",
+        start: "top center",
+      },
+    })
+    t1.to("#overlay-2", {
+      height: "0px",
+      duration: duration,
+      ease: "expo.out",
+    })
+    // t1.to("#image-2", {
+    //   scaleZ: 0.5,
+    //   duration: duration,
+    //   ease: "expo.out",
+    // })
+    gsap.to("#overlay-3", {
+      scrollTrigger: {
+        trigger: "#overlay-3",
+        start: "top center",
+      },
+      height: "0px",
+      duration: duration,
+      ease: "expo.out",
+    })
+  })
+
+  // Animations end
   return (
     <div className="pt-16 md:pt-24 xl:pt-24">
       <div className="flex justify-between">

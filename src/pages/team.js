@@ -26,11 +26,11 @@ const Team = () => {
   `)
   const teamData = teamDataQuery.allContentfulIndividualTeamMember.nodes
   return (
-    <Layout>
-      <div className="bg-primary">
+    <div className="bg-primary">
+      <Layout>
         <div className="top-padding-for-each-page width-wrapper">
           <h1 className="text-6xl  leading-h1LineHeight pt-16 capitalize xl:text-7xl xl:leading-7xl">
-            Team at csp
+            Team at CSP
           </h1>
           <p className="pt-16 paragraph-width-container md:w-8/12">
             We are a private equity investment firm investing across
@@ -57,8 +57,8 @@ const Team = () => {
             })}
           </div>
         </div>
-      </div>
-    </Layout>
+      </Layout>
+    </div>
   )
 }
 

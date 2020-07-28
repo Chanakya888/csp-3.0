@@ -25,8 +25,8 @@ const Investments = () => {
   `)
   const investmentData = dataQuery.allContentfulIndividualInvestment.nodes
   return (
-    <Layout>
-      <div className="bg-primary">
+    <div className="bg-primary">
+      <Layout>
         <div className="top-padding-for-each-page width-wrapper">
           <h1 className="text-6xl  leading-h1LineHeight pt-16 capitalize xl:text-7xl xl:leading-7xl">
             Investments of CSP
@@ -56,8 +56,8 @@ const Investments = () => {
             })}
           </div>
         </div>
-      </div>
-    </Layout>
+      </Layout>
+    </div>
   )
 }
 

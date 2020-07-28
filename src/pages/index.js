@@ -1,15 +1,15 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { Link } from "gatsby"
-import "../css/global.css"
 import "../css/tailwind.css"
+import "../css/global.css"
 import Layout from "../components/layout/Layout"
 import AboutSection from "../homepage-sections/Aboutsection"
 import WhoWeAreSection from "../homepage-sections/WhoWeAreSection"
 import InvestmentSection from "../homepage-sections/InvestmentSection"
 import FactsAndFiguresSection from "../homepage-sections/FactsAndFiguresSection"
 import TeamAtCspSection from "../homepage-sections/TeamAtCspSection"
-import GetInTouchCard from "../components/GetInTouchCard"
+import GeneralQuestionSection from "../homepage-sections/GeneralQuestionSection"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -20,8 +20,8 @@ const IndexPage = () => {
     }
   `)
   return (
-    <Layout>
-      <div className="bg-primary">
+    <div className="bg-primary">
+      <Layout>
         <div className="" id="mainComponent">
           <div id="wrapper">
             <div className="top-padding-for-each-page">
@@ -35,13 +35,12 @@ const IndexPage = () => {
               <InvestmentSection />
               <FactsAndFiguresSection />
               <TeamAtCspSection />
-              <GetInTouchCard />
+              <GeneralQuestionSection />
             </div>
-            {/* Another div because of the change in left and right margins */}
           </div>
         </div>
-      </div>
-    </Layout>
+      </Layout>
+    </div>
   )
 }
 

@@ -6,8 +6,8 @@ import Subtitle from "../components/Subtitle"
 import Layout from "../components/layout/Layout"
 const IndividualTeamPage = ({ data: { teamMember } }) => {
   return (
-    <Layout>
-      <div className="bg-primary">
+    <div className="bg-primary">
+      <Layout>
         <div className="pt-16 md:pt-24 xl:pt-40 width-wrapper">
           <TeamMemberIntroComponent
             positionInTheCompany={teamMember.positionInTheCompany}
@@ -26,8 +26,8 @@ const IndividualTeamPage = ({ data: { teamMember } }) => {
           <Subtitle subtitle="More team members at csp" />
           <TeamAtCspComponent idOfTheEmployee={teamMember.id} />
         </div>
-      </div>
-    </Layout>
+      </Layout>
+    </div>
   )
 }
 

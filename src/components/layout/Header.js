@@ -26,7 +26,7 @@ const Header = () => {
           <button
             className={`navbar-font hidden md:inline-block md:pl-${leftSpacingForMD} xl:pl-${leftSpacingForXL}`}
           >
-            <AniLink paintDrip to="/page-2" color="black" duration={duration}>
+            <AniLink paintDrip to="/about" color="black" duration={duration}>
               Know Us
             </AniLink>
           </button>

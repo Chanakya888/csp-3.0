@@ -7,8 +7,8 @@ import InvestmentComponent from "../components/investmentComponentFolder/Investm
 
 const IndividualTeamPage = ({ data: { investment } }) => {
   return (
-    <Layout>
-      <div className="bg-primary">
+    <div className="bg-primary">
+      <Layout>
         <div className="pt-16 md:pt-24 xl:pt-40 width-wrapper">
           <InvestmentIntroComponent
             positionInTheCompany={investment.mergeExitTitle}
@@ -28,8 +28,8 @@ const IndividualTeamPage = ({ data: { investment } }) => {
           <Subtitle subtitle="More investments of csp" />
           <InvestmentComponent idOfTheInvestment={investment.id} />
         </div>
-      </div>
-    </Layout>
+      </Layout>
+    </div>
   )
 }
 

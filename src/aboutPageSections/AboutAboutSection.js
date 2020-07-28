@@ -71,7 +71,7 @@ const AboutaboutSection = () => {
   return (
     <div className="top-padding-for-each-page">
       <div className="flex justify-between">
-        <div className="px-6 width-wrapper">
+        <div className="width-wrapper">
           <h1 className="text-6xl leading-h1LineHeight pt-16 capitalize xl:text-7xl xl:leading-7xl">
             About Us
           </h1>
