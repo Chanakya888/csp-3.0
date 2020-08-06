@@ -8,7 +8,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import { gsap, Power4 } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { SplitText } from "gsap/SplitText"
+import { SplitText } from "gsap"
 
 gsap.registerPlugin(SplitText)
 gsap.registerPlugin(ScrollTrigger)

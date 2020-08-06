@@ -10,7 +10,7 @@ import FactsAndFiguresSection from "../homepage-sections/FactsAndFiguresSection"
 import TeamAtCspSection from "../homepage-sections/TeamAtCspSection"
 import GeneralQuestionSection from "../homepage-sections/GeneralQuestionSection"
 import { gsap, TimelineLite, Power4 } from "gsap"
-import { SplitText } from "gsap/SplitText"
+import { SplitText } from "gsap"
 
 gsap.registerPlugin(SplitText)
 const IndexPage = () => {
