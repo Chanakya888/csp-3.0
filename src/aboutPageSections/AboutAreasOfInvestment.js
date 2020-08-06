@@ -50,7 +50,7 @@ const AboutAreasOfInvestment = () => {
     })
 
     split.lines.forEach(element => {
-      const line_innerDiv = React.createElement("h1")
+      const line_innerDiv = document.createElement("h1")
       line_innerDiv.classList.add("line_innerDiv")
       line_innerDiv.textContent = element.textContent
       element.textContent = ""
