@@ -4,7 +4,7 @@ import DefaultButton from "../components/DefaultButton"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import { gsap, Power4 } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { SplitText } from "../../node_modules/gsap/SplitText"
+import { SplitText } from "../../node_modules/gsap/SplitText.js"
 
 gsap.registerPlugin(SplitText)
 gsap.registerPlugin(ScrollTrigger)

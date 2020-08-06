@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import IndividualInvestmentComponent from "../components/investmentComponentFolder/IndividualInvestmentComponent"
 import Layout from "../components/layout/Layout"
 import { gsap, TimelineLite, Power4 } from "gsap"
-import { SplitText } from "../../node_modules/gsap/SplitText"
+import { SplitText } from "../../node_modules/gsap/SplitText.js"
 gsap.registerPlugin(SplitText)
 const Team = () => {
   const teamDataQuery = useStaticQuery(graphql`
