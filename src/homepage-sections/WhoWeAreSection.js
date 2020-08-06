@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Subtitle from "../components/Subtitle"
 import DefaultButton from "../components/DefaultButton"
 import { graphql, useStaticQuery, Link } from "gatsby"
@@ -22,15 +22,18 @@ const WhoWeAreSection = props => {
       }
     }
   `)
-  let t1 = gsap.timeline({
-    scrollTrigger: {
-      trigger: "#who-we-are-text",
-      start: "top 90%",
-    },
+  useEffect(() => {
+    let t1 = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#who-we-are-text",
+        start: "top 90%",
+      },
+    })
+    let mySplitText = new SplitText("#who-we-are-text", { type: "lines" })
+    let lines = mySplitText.lines
+    t1.staggerFrom(lines, 1, { opacity: 0, y: 20, ease: Power4.easeOut }, 0.15)
   })
-  let mySplitText = new SplitText("#who-we-are-text", { type: "lines" })
-  let lines = mySplitText.lines
-  t1.staggerFrom(lines, 1, { opacity: 0, y: 20, ease: Power4.easeOut }, 0.15)
+
   return (
     <div className="px-6 pt-24 md:px-10 xl:px-48 xl:pt-48">
       <Subtitle subtitle="who we are" />

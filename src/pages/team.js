@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import IndividualInvestmentComponent from "../components/investmentComponentFolder/IndividualInvestmentComponent"
 import Layout from "../components/layout/Layout"
@@ -26,35 +26,38 @@ const Team = () => {
     }
   `)
   const teamData = teamDataQuery.allContentfulIndividualTeamMember.nodes
-  let t1 = new TimelineLite()
-  let split = new SplitText("#team-page-text-heading", {
-    type: "lines",
-    linesClass: "line",
+  useEffect(() => {
+    let t1 = new TimelineLite()
+    let split = new SplitText("#team-page-text-heading", {
+      type: "lines",
+      linesClass: "line",
+    })
+    split.lines.forEach(element => {
+      const line_innerDiv = document.createElement("h1")
+      line_innerDiv.classList.add("line_innerDiv")
+      line_innerDiv.textContent = element.textContent
+      element.textContent = ""
+      element.appendChild(line_innerDiv)
+    })
+    let aboutSplitText = new SplitText("#team-page-landing-split-text", {
+      type: "lines",
+    })
+    let aboutLines = aboutSplitText.lines
+    t1.staggerFrom(
+      document.querySelectorAll(".line_innerDiv"),
+      1.5,
+      { y: "100%", ease: Power4.easeOut },
+      0.15
+    )
+    t1.staggerFrom(
+      aboutLines,
+      1,
+      { opacity: 0, y: 20, ease: Power4.easeOut },
+      0.15,
+      "-=1.5"
+    )
   })
-  split.lines.forEach(element => {
-    const line_innerDiv = document.createElement("h1")
-    line_innerDiv.classList.add("line_innerDiv")
-    line_innerDiv.textContent = element.textContent
-    element.textContent = ""
-    element.appendChild(line_innerDiv)
-  })
-  let aboutSplitText = new SplitText("#team-page-landing-split-text", {
-    type: "lines",
-  })
-  let aboutLines = aboutSplitText.lines
-  t1.staggerFrom(
-    document.querySelectorAll(".line_innerDiv"),
-    1.5,
-    { y: "100%", ease: Power4.easeOut },
-    0.15
-  )
-  t1.staggerFrom(
-    aboutLines,
-    1,
-    { opacity: 0, y: 20, ease: Power4.easeOut },
-    0.15,
-    "-=1.5"
-  )
+
   return (
     <div className="bg-primary">
       <Layout>

@@ -7,8 +7,7 @@ import TeamAtCspSection from "../homepage-sections/TeamAtCspSection"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import { gsap, Power4 } from "gsap"
-
-import { SplitText } from "../utils/SplitText"
+import { SplitText } from "../utils/SplitText.js"
 
 const AboutAreasOfInvestment = () => {
   const aboutData = useStaticQuery(graphql`
@@ -39,30 +38,32 @@ const AboutAreasOfInvestment = () => {
       duration: duration,
       ease: "expo.out",
     })
+    let t2 = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#area-of-investment-text",
+        start: "top 90%",
+      },
+    })
+    let split = new SplitText("#area-of-investment-text", {
+      type: "lines",
+      linesClass: "line",
+    })
+
+    split.lines.forEach(element => {
+      const line_innerDiv = React.createElement("h1")
+      line_innerDiv.classList.add("line_innerDiv")
+      line_innerDiv.textContent = element.textContent
+      element.textContent = ""
+      element.appendChild(line_innerDiv)
+    })
+    t2.staggerFrom(
+      document.querySelectorAll(".line_innerDiv"),
+      1.5,
+      { y: "100%", ease: Power4.easeOut },
+      0.15
+    )
   })
-  let t2 = gsap.timeline({
-    scrollTrigger: {
-      trigger: "#area-of-investment-text",
-      start: "top 90%",
-    },
-  })
-  let split = new SplitText("#area-of-investment-text", {
-    type: "lines",
-    linesClass: "line",
-  })
-  split.lines.forEach(element => {
-    const line_innerDiv = document.createElement("h1")
-    line_innerDiv.classList.add("line_innerDiv")
-    line_innerDiv.textContent = element.textContent
-    element.textContent = ""
-    element.appendChild(line_innerDiv)
-  })
-  t2.staggerFrom(
-    document.querySelectorAll(".line_innerDiv"),
-    1.5,
-    { y: "100%", ease: Power4.easeOut },
-    0.15
-  )
+
   return (
     <div className="">
       <div className="xl:flex xl:items-end">
