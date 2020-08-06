@@ -7,11 +7,9 @@ import TeamAtCspSection from "../homepage-sections/TeamAtCspSection"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import { gsap, Power4 } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+
 import { SplitText } from "../utils/SplitText"
 
-gsap.registerPlugin(SplitText)
-gsap.registerPlugin(ScrollTrigger)
 const AboutAreasOfInvestment = () => {
   const aboutData = useStaticQuery(graphql`
     query {
