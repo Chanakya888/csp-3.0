@@ -1,11 +1,14 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useRef } from "react"
 import Subtitle from "../components/Subtitle"
 import DefaultButton from "../components/DefaultButton"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import Img from "gatsby-image"
-import { gsap } from "gsap"
+import { gsap, Power4 } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { TimelineLite } from "gsap/gsap-core"
+import { SplitText } from "gsap/SplitText"
 
+gsap.registerPlugin(SplitText)
 gsap.registerPlugin(ScrollTrigger)
 const AboutSection = () => {
   const data = useStaticQuery(graphql`
@@ -43,32 +46,39 @@ const AboutSection = () => {
   `)
   // Animations start
   const duration = 1.5
+  let image1 = useRef(null)
+  let image2 = useRef(null)
+  let image3 = useRef(null)
+
   useEffect(() => {
-    gsap.fromTo(
+    let t1 = new TimelineLite()
+    let mySplitText = new SplitText("#split-text", { type: "lines" })
+    let lines = mySplitText.lines
+
+    // Image variables
+    image1 = image1.current.firstElementChild
+    image2 = image2.current.firstElementChild
+    image3 = image3.current.firstElementChild
+
+    t1.staggerFrom(lines, 1, { opacity: 0, y: 20, ease: Power4.easeOut }, 0.15)
+    t1.fromTo(
       "#overlay-1",
       { height: "500px" },
       {
         height: "0px",
         duration: duration,
-        ease: "expo.out",
+        ease: Power4.easeOut,
       }
     )
-    let t1 = gsap.timeline({
+    gsap.to("#overlay-2", {
       scrollTrigger: {
         trigger: "#overlay-2",
         start: "top center",
       },
-    })
-    t1.to("#overlay-2", {
       height: "0px",
       duration: duration,
-      ease: "expo.out",
+      ease: Power4.easeOut,
     })
-    // t1.to("#image-2", {
-    //   scaleZ: 0.5,
-    //   duration: duration,
-    //   ease: "expo.out",
-    // })
     gsap.to("#overlay-3", {
       scrollTrigger: {
         trigger: "#overlay-3",
@@ -76,22 +86,45 @@ const AboutSection = () => {
       },
       height: "0px",
       duration: duration,
-      ease: "expo.out",
+      ease: Power4.easeOut,
     })
+    let t2 = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#split-text-subheading",
+        start: "top 90%",
+      },
+    })
+    let split = new SplitText("#split-text-subheading", {
+      type: "lines",
+      linesClass: "line",
+    })
+    split.lines.forEach(element => {
+      const line_innerDiv = document.createElement("h1")
+      line_innerDiv.classList.add("line_innerDiv")
+      line_innerDiv.textContent = element.textContent
+      element.textContent = ""
+      element.appendChild(line_innerDiv)
+    })
+    t2.staggerFrom(
+      document.querySelectorAll(".line_innerDiv"),
+      1.5,
+      { y: "100%", ease: Power4.easeOut },
+      0.15
+    )
   })
-
-  // Animations end
   return (
     <div className="pt-16 md:pt-24 xl:pt-24">
       <div className="flex justify-between">
         <div className="px-6 md:px-10 xl:pl-48 xl:pr-32">
           <Subtitle subtitle="about" animationName="about" />
-          <p className="md:w-8/12 lg:w-1/2 xl:w-full">
-            {
-              data.allContentfulHomePageAboutDescriptionTextNode.nodes[0]
-                .aboutDescription
-            }
-          </p>
+          <div>
+            <p className="md:w-8/12 lg:w-1/2 xl:w-full" id="split-text">
+              {
+                data.allContentfulHomePageAboutDescriptionTextNode.nodes[0]
+                  .aboutDescription
+              }
+            </p>
+          </div>
           {/* buttons */}
           <div className="pt-16 w-auto inline-block md:flex md:justify-start">
             <div className="w-auto inline-block ">
@@ -110,7 +143,7 @@ const AboutSection = () => {
         </div>
         <div className="pt-40 hidden xl:block">
           {/* This image is for xl size */}
-          <div className="relative">
+          <div ref={image1} className="relative">
             <Img
               fluid={data.allContentfulHomePage.nodes[0].image1.fluid}
               alt="Two Beautiful Skyscrapers"
@@ -135,7 +168,7 @@ const AboutSection = () => {
       </div>
       <div className="pr-6 pt-6 xl:w-1/2">
         <div className="relative" id="image-2">
-          <div id="image-2">
+          <div id="image-2" ref={image2}>
             <Img
               fluid={data.allContentfulHomePage.nodes[0].image2.fluid}
               alt="Beautiful Skyscraper again"
@@ -148,15 +181,15 @@ const AboutSection = () => {
       </div>
 
       <div className="pt-24 width-wrapper pr-8 xl:pt-40 xl:w-4/6 ">
-        <h2 className="text-4xl">
+        <div className="text-4xl" id="split-text-subheading">
           {
             data.allContentfulHomePageMainSecondaryDescriptionTextNode.nodes[0]
               .mainSecondaryDescription
           }
-        </h2>
+        </div>
       </div>
       <div className="pl-6 pt-20 xl:w-1/2">
-        <div className="relative">
+        <div className="relative" ref={image3}>
           <Img
             fluid={data.allContentfulHomePage.nodes[0].image3.fluid}
             alt="Team of CSP"

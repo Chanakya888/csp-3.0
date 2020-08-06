@@ -14,7 +14,7 @@ const TeamMemberIntroComponent = props => {
       </p>
       <h2 className="text-5xl pt-4">{props.nameOfTheEmployee}</h2>
       <div className="md:flex md:flex-row-reverse md:pt-4 overflow-hidden">
-        <div className="mt-5 xl:mt-8 xl:mr-6 md:w-1/2 lg:pl-8 xl:pl-14">
+        <div className="mt-5 xl:mt-8 xl:mr-6 md:w-1/2 lg:pl-8 xl:pl-16">
           <Img
             className="image-of-team-member"
             fluid={props.pictureOfTheEmployee}

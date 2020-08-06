@@ -8,12 +8,12 @@ const MapComponent = () => {
     zoom: 10,
     minzoom: 9,
     maxzoom: 10,
-    width: "400px",
+    width: "300px",
     height: "400px",
   })
 
   return (
-    <div className="map-size">
+    <div className="map">
       <MapGL
         {...viewport}
         mapboxApiAccessToken={

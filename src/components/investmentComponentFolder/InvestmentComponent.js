@@ -71,13 +71,11 @@ const InvestmentComponent = props => {
         value = value + 1
         if (numberOfExtras === 1) {
           if (value === Math.ceil(data.length / x - 1)) {
-            console.log("value matched, last element detected for next")
             value = value - 0.67
           }
         }
         if (numberOfExtras === 2) {
           if (value === Math.ceil(data.length / x - 1)) {
-            console.log("value matched, last element detected for next")
             value = value - 0.35
           }
         }
@@ -100,28 +98,20 @@ const InvestmentComponent = props => {
       if (x === 3) {
         if (x === 3 && numberOfExtras === 1) {
           if (Math.ceil(value) === Math.ceil(data.length / x - 1)) {
-            console.log(
-              "value matched, last element detected for previouss in no. extras 1"
-            )
             value = value - 0.33
             value = value + 1
           }
         }
         if (x === 3 && numberOfExtras === 2) {
           if (Math.ceil(value) === Math.ceil(data.length / x - 1)) {
-            console.log(
-              "value matched, last element detected for previouss in no. extras 2"
-            )
             value = value - 0.65
             value = value + 1
           }
         }
         value = value - 1
-        console.log("value of previous after making changess", value)
       } else {
         value = value - 1
         if (Math.ceil(value) === Math.ceil(data.length / x - 2)) {
-          console.log("last one detected")
           value = value - 0.5
           value = value + 1
         }
@@ -132,7 +122,7 @@ const InvestmentComponent = props => {
 
   const moveSlider = moveby => {
     const slider = document.getElementById("slider")
-    console.log("value is ", moveby * 100)
+
     gsap.to(slider, 0.25, { x: `-${moveby * 100}%` })
   }
 
@@ -140,7 +130,7 @@ const InvestmentComponent = props => {
   if (data.length >= 10) {
     zeroOrNo = ""
   }
-  console.log("zero", zeroOrNo)
+
   return (
     <div id="investmentComponent">
       <div className="overflow-hidden">

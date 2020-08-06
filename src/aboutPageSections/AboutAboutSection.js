@@ -2,7 +2,10 @@ import React, { useEffect } from "react"
 import DefaultButton from "../components/DefaultButton"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import Img from "gatsby-image"
-import { gsap } from "gsap"
+import { gsap, TimelineLite, Power4 } from "gsap"
+import { SplitText } from "gsap/SplitText"
+
+gsap.registerPlugin(SplitText)
 const AboutaboutSection = () => {
   const aboutData = useStaticQuery(graphql`
     query {
@@ -38,15 +41,39 @@ const AboutaboutSection = () => {
   const duration = 1.5
   // Animations start
   useEffect(() => {
-    gsap.to("#about-overlay-1", {
-      scrollTrigger: {
-        trigger: "#about-overlay-1",
-        start: "top center",
-      },
+    let t1 = new TimelineLite()
+    let split = new SplitText("#about-text-heading", {
+      type: "lines",
+      linesClass: "line",
+    })
+    split.lines.forEach(element => {
+      const line_innerDiv = document.createElement("h1")
+      line_innerDiv.classList.add("line_innerDiv")
+      line_innerDiv.textContent = element.textContent
+      element.textContent = ""
+      element.appendChild(line_innerDiv)
+    })
+    let aboutSplitText = new SplitText("#about-page-landing-split-text", {
+      type: "lines",
+    })
+    let aboutLines = aboutSplitText.lines
+    t1.staggerFrom(
+      document.querySelectorAll(".line_innerDiv"),
+      1.5,
+      { y: "100%", ease: Power4.easeOut },
+      0.15
+    )
+    t1.staggerFrom(
+      aboutLines,
+      1,
+      { opacity: 0, y: 20, ease: Power4.easeOut },
+      0.15,
+      "-=1.5"
+    )
+    t1.to("#about-overlay-1", {
       height: "0px",
       duration: duration,
-      delay: 1,
-      ease: "expo.out",
+      ease: Power4.easeOut,
     })
     gsap.to("#about-overlay-2", {
       scrollTrigger: {
@@ -55,7 +82,7 @@ const AboutaboutSection = () => {
       },
       height: "0px",
       duration: duration,
-      ease: "expo.out",
+      ease: Power4.easeOut,
     })
     gsap.to("#about-overlay-3", {
       scrollTrigger: {
@@ -64,7 +91,7 @@ const AboutaboutSection = () => {
       },
       height: "0px",
       duration: duration,
-      ease: "expo.out",
+      ease: Power4.easeOut,
     })
   })
 
@@ -72,10 +99,16 @@ const AboutaboutSection = () => {
     <div className="top-padding-for-each-page">
       <div className="flex justify-between">
         <div className="width-wrapper">
-          <h1 className="text-6xl leading-h1LineHeight pt-16 capitalize xl:text-7xl xl:leading-7xl">
+          <div
+            className="text-6xl leading-h1LineHeight pt-16 capitalize xl:text-7xl xl:leading-7xl"
+            id="about-text-heading"
+          >
             About Us
-          </h1>
-          <p className="pt-10 xl:pt-16 md:w-8/12 lg:w-1/2 xl:w-full">
+          </div>
+          <p
+            className="pt-10 xl:pt-16 md:w-8/12 lg:w-1/2 xl:w-full"
+            id="about-page-landing-split-text"
+          >
             {
               aboutData.allContentfulAboutPage.nodes[0].aboutPageDescription
                 .aboutPageDescription

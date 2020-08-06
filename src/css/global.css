@@ -17,6 +17,10 @@
 h1 {
   font-family: SchynderCondensed;
 }
+.line {
+  margin-bottom: 1px;
+  overflow: hidden;
+}
 h2 {
   font-family: SchynderCondensed;
 }
@@ -123,6 +127,20 @@ input {
 .investment-image {
   object-fit: contain;
 }
+.map-size {
+  width: 300px;
+  height: 400px;
+}
+.line_innerDiv {
+  width: max-content;
+}
+.line {
+  width: max-content;
+}
+/* .map {
+  width: 300px;
+  height: 400px;
+} */
 /* sm screen */
 @screen sm {
   .image-of-team-member {
@@ -174,7 +192,8 @@ input {
     @apply w-5/12;
   }
   .width-wrapper {
-    @apply px-48;
+    @apply pl-48;
+    @apply pr-32;
   }
   .width-wrapper-fullscreen {
     @apply px-10;

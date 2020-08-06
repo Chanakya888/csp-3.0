@@ -17,8 +17,8 @@ const InvestmentIntroComponent = props => {
         {props.positionInTheCompany}
       </p>
       <h2 className="text-5xl pt-4">{props.investmentName}</h2>
-      <div className="md:flex md:flex-row-reverse md:pt-4 overflow-hidden">
-        <div className="mt-5 xl:mt-8 xl:mr-6 md:w-1/2 lg:pl-8 xl:pl-14">
+      <div className="md:flex md:flex-row-reverse md:pt-4 overflow-hidden ">
+        <div className="mt-5 xl:mt-8 xl:mr-6 md:w-1/2 lg:pl-8 xl:pl-16">
           <Img
             className="image-of-team-member"
             fluid={props.investmentLogo}
@@ -28,6 +28,7 @@ const InvestmentIntroComponent = props => {
             <ListComponent listArray={announcements} />
           </div>
         </div>
+
         <div className="md:pr-6 md:w-1/2">
           <div>
             <div className="pt-6 paragraph-width-container-for-templates">

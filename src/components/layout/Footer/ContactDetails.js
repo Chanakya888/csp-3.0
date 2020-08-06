@@ -33,7 +33,7 @@ const ContactDetails = () => {
             color="black"
           />
           <MapComponent />
-          <div className="h-24"></div>
+          <div className="h-5"></div>
         </div>
       </div>
       {/* <div className="pt-16">

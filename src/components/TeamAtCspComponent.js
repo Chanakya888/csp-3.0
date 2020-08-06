@@ -34,7 +34,6 @@ const TeamAtCspComponent = props => {
     return el.id !== props.idOfTheEmployee
   })
 
-  console.log("new array is", teamData)
   const handlePrevious = () => {
     if (value > 0) {
       setValue(value => value - 1)

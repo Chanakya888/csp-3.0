@@ -2,6 +2,12 @@ import React from "react"
 import Subtitle from "../components/Subtitle"
 import DefaultButton from "../components/DefaultButton"
 import { graphql, useStaticQuery, Link } from "gatsby"
+import { gsap, Power4 } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { SplitText } from "gsap/SplitText"
+
+gsap.registerPlugin(SplitText)
+gsap.registerPlugin(ScrollTrigger)
 const WhoWeAreSection = props => {
   let showWhoWeAreButtons = "inline-block"
   if (props.hideButtons === "hide") {
@@ -16,11 +22,19 @@ const WhoWeAreSection = props => {
       }
     }
   `)
-
+  let t1 = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#who-we-are-text",
+      start: "top 90%",
+    },
+  })
+  let mySplitText = new SplitText("#who-we-are-text", { type: "lines" })
+  let lines = mySplitText.lines
+  t1.staggerFrom(lines, 1, { opacity: 0, y: 20, ease: Power4.easeOut }, 0.15)
   return (
     <div className="px-6 pt-24 md:px-10 xl:px-48 xl:pt-48">
       <Subtitle subtitle="who we are" />
-      <p className="md:w-8/12 space-x-1 xl:w-1/2">
+      <p className="md:w-8/12 space-x-1 xl:w-1/2" id="who-we-are-text">
         {
           data.allContentfulWhoWeAreSectionWhoWeAreDescriptionTextNode.nodes[0]
             .whoWeAreDescription
