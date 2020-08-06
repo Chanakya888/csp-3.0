@@ -3,7 +3,7 @@ import DefaultButton from "../components/DefaultButton"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import Img from "gatsby-image"
 import { gsap, TimelineLite, Power4 } from "gsap"
-import { SplitText } from "../../node_modules/gsap/SplitText.js"
+import { SplitText } from "../utils/SplitText"
 
 gsap.registerPlugin(SplitText)
 const AboutaboutSection = () => {
