@@ -118,6 +118,9 @@ input {
   width: 24px;
   height: 24px;
 }
+.landingButtonUnderline {
+  width: 0;
+}
 .team-grid-container {
   display: grid;
   grid-template-columns: 1fr;
@@ -126,6 +129,13 @@ input {
 }
 .investment-image {
   object-fit: contain;
+}
+.investment-rectangle {
+  @apply bg-primary;
+  width: 100%;
+  height: 100%;
+  @apply absolute;
+  bottom: 0;
 }
 .map-size {
   width: 300px;

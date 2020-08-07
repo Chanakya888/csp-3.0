@@ -1,10 +1,16 @@
 import React, { useEffect } from "react"
-import { gsap } from "gsap"
+import { gsap,easeOut } from "gsap"
 
 const DefaultButton = props => {
   var textColor = "black"
   let fullButton = ""
   let underline = "block"
+  let widthOfUnderline = "100%"
+  let landingButtonUnderline = ""
+  if (props.landingButtonUnderline == "landingButtonUnderline") {
+    landingButtonUnderline = "landingButtonUnderline"
+    widthOfUnderline = "0"
+  }
   if (props.color === "white") {
     textColor = "white"
   }
@@ -25,9 +31,9 @@ const DefaultButton = props => {
         trigger: `#${button_text_withoutspaces}-Underline`,
         start: "20px 80%",
       },
-      width: "100%",
+      width: widthOfUnderline,
       duration: 1,
-      ease: "expo.out",
+      ease: easeOut,
     })
   })
   // Animations end
@@ -38,7 +44,7 @@ const DefaultButton = props => {
       </p>
       <div
         id={`${button_text_withoutspaces}-Underline`}
-        className={` h-px w-px block bg-${textColor} ${underline}`}
+        className={` h-px w-px block bg-${textColor} ${underline} ${landingButtonUnderline}`}
       ></div>
     </div>
   )

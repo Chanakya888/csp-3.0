@@ -12,7 +12,6 @@ import GeneralQuestionSection from "../homepage-sections/GeneralQuestionSection"
 import { gsap, TimelineLite, Power4 } from "gsap"
 import { SplitText } from "../utils/SplitText"
 
-gsap.registerPlugin(SplitText)
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -35,7 +34,10 @@ const IndexPage = () => {
       element.textContent = ""
       element.appendChild(line_innerDiv)
     })
-
+    t1.from(document.querySelectorAll(".line_innerDiv"), 1, {
+      opacity: 0,
+      ease: Power4.easeOut,
+    })
     t1.staggerFrom(
       document.querySelectorAll(".line_innerDiv"),
       1.5,

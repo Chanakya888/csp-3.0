@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react"
 import Subtitle from "../components/Subtitle"
 import DefaultButton from "../components/DefaultButton"
-import { graphql, useStaticQuery, Link } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import { gsap, Power4 } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -60,7 +60,12 @@ const AboutSection = () => {
     image2 = image2.current.firstElementChild
     image3 = image3.current.firstElementChild
 
-    t1.staggerFrom(lines, 1, { opacity: 0, y: 20, ease: Power4.easeOut }, 0.15)
+    t1.staggerFrom(
+      lines,
+      1,
+      { opacity: 0, y: 20, ease: Power4.easeOut, delay: 2 },
+      0.15
+    )
     t1.fromTo(
       "#overlay-1",
       { height: "500px" },
@@ -73,7 +78,7 @@ const AboutSection = () => {
     gsap.to("#overlay-2", {
       scrollTrigger: {
         trigger: "#overlay-2",
-        start: "top center",
+        start: "top 80%",
       },
       height: "0px",
       duration: duration,
@@ -82,7 +87,7 @@ const AboutSection = () => {
     gsap.to("#overlay-3", {
       scrollTrigger: {
         trigger: "#overlay-3",
-        start: "top center",
+        start: "top 80%",
       },
       height: "0px",
       duration: duration,
@@ -141,7 +146,7 @@ const AboutSection = () => {
             </div>
           </div>
         </div>
-        <div className="pt-40 hidden xl:block">
+        <div className="pt-24 hidden xl:block">
           {/* This image is for xl size */}
           <div ref={image1} className="relative">
             <Img

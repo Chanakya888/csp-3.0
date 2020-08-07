@@ -2,6 +2,9 @@ import React, { useEffect } from "react"
 import DefaultButton from "../DefaultButton"
 import Img from "gatsby-image"
 import { Link } from "gatsby"
+import { gsap, TimelineLite, Power4, easeOut } from "gsap"
+import { SplitText } from "../../utils/SplitText"
+
 const IndividualInvestmentComponent = props => {
   //All the below value change is for the team page using this component
   let hideDes,
@@ -29,15 +32,79 @@ const IndividualInvestmentComponent = props => {
   if (props.endId > 9) {
     zeroOrNot = ""
   }
-  useEffect(() => {})
+  console.log("type is ", props.type)
+  //Animations start
+  let delay = 0
+  if (props.delay === "delay-them") {
+    delay = 1.25
+  }
+  useEffect(() => {
+    let split = new SplitText(`#${props.type}-heading`, {
+      type: "lines",
+      linesClass: "line",
+    })
+    split.lines.forEach(element => {
+      const line_innerDiv = document.createElement("h1")
+      line_innerDiv.classList.add("line_innerDiv")
+      line_innerDiv.textContent = element.textContent
+      element.textContent = ""
+      element.appendChild(line_innerDiv)
+    })
+    let aboutSplitText = new SplitText(`#${props.type}-subtitle`, {
+      type: "lines",
+    })
+    let aboutLines = aboutSplitText.lines
+    let t1 = gsap.timeline({
+      scrollTrigger: {
+        trigger: `#${props.type}-heading`,
+        start: "top 96%",
+      },
+    })
+    //making the title visible
+    t1.from(document.querySelectorAll(".line_innerDiv"), 1, {
+      opacity: 0,
+      ease: Power4.easeOut,
+    })
+    // bringing up the title
+    t1.staggerFrom(
+      document.querySelectorAll(".line_innerDiv"),
+      1,
+      { y: "100%", ease: Power4.easeOut },
+      0.15
+    )
+    //bringing up about lines
+    t1.staggerFrom(
+      aboutLines,
+      0.75,
+      { opacity: 0, y: 20, ease: Power4.easeOut },
+      0.15
+    )
+    //removing overlay
+    t1.to(`#${props.type}-overlay`, {
+      height: 0,
+      duration: 1,
+      ease: Power4.easeOut,
+    })
+    // t1.to(".external-link", 1, {
+    //   drawSVG: 0,
+    //   delay: 0.5,
+    // })
+  })
   return (
     <div
-      id={props.id}
+      id={`${props.type}`}
       className={`w-full flex-shrink-0 ${widthOfComponent} md:pr-${PaddingRightForComponentOrPage}`}
     >
-      <p className="subtitle-text investment-customer-text">{props.customer}</p>
+      <p
+        className="subtitle-text investment-customer-text"
+        id={`${props.type}-subtitle`}
+      >
+        {props.customer}
+      </p>
       <div className="flex justify-between w-11/12 md:w-full xl:w-11/12">
-        <h2 className="text-4xl pt-4">{props.company}</h2>
+        <h2 className="text-4xl pt-4" id={`${props.type}-heading`}>
+          {props.company}
+        </h2>
         <div className="flex items-center pt-3 pr-2">
           <Link to={`/${props.slug}`}>
             <div className="external-link"></div>
@@ -84,12 +151,16 @@ const IndividualInvestmentComponent = props => {
             </button>
           </div>
         </div>
-        <div className="mt-5 xl:mt-8 xl:mr-6">
+        <div className="mt-5 xl:mt-8 xl:mr-6 relative">
           <Img
             id="investmentImage"
             className="investment-image"
             fluid={props.logoImage}
           />
+          <div
+            className="investment-rectangle"
+            id={`${props.type}-overlay`}
+          ></div>
         </div>
         <div className={`flex justify-end pt-5 md:hidden ${disableCount}`}>
           <DefaultButton buttonText={`${props.buttonText}`} />

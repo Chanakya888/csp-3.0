@@ -43,6 +43,10 @@ const Team = () => {
       type: "lines",
     })
     let aboutLines = aboutSplitText.lines
+    t1.from(document.querySelectorAll(".line_innerDiv"), 1, {
+      opacity: 0,
+      ease: Power4.easeOut,
+    })
     t1.staggerFrom(
       document.querySelectorAll(".line_innerDiv"),
       1.5,
@@ -52,7 +56,7 @@ const Team = () => {
     t1.staggerFrom(
       aboutLines,
       1,
-      { opacity: 0, y: 20, ease: Power4.easeOut },
+      { opacity: 0, y: 20, ease: Power4.easeOut, delay: 1 },
       0.15,
       "-=1.5"
     )

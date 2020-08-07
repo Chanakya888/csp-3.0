@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import DefaultButton from "../components/DefaultButton"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import Img from "gatsby-image"
-import { gsap, TimelineLite, Power4 } from "gsap"
+import { gsap, TimelineLite, Power4, easeOut } from "gsap"
 import { SplitText } from "../utils/SplitText"
 
 gsap.registerPlugin(SplitText)
@@ -57,6 +57,10 @@ const AboutaboutSection = () => {
       type: "lines",
     })
     let aboutLines = aboutSplitText.lines
+    t1.from(document.querySelectorAll(".line_innerDiv"), 1, {
+      opacity: 0,
+      ease: Power4.easeOut,
+    })
     t1.staggerFrom(
       document.querySelectorAll(".line_innerDiv"),
       1.5,
@@ -75,6 +79,22 @@ const AboutaboutSection = () => {
       duration: duration,
       ease: Power4.easeOut,
     })
+    t1.fromTo(
+      "#about-page-buttons",
+      { y: 60, opacity: 0, ease: Power4.easeOut },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+      },
+      "-=1"
+    )
+    t1.to(".landingButtonUnderline", {
+      width: "100%",
+      duration: 0.5,
+      ease: easeOut,
+    })
+
     gsap.to("#about-overlay-2", {
       scrollTrigger: {
         trigger: "#about-overlay-2",
@@ -114,16 +134,22 @@ const AboutaboutSection = () => {
                 .aboutPageDescription
             }
           </p>
-          <div className="pt-16 md:flex justify-start">
+          <div className="pt-16 md:flex justify-start" id="about-page-buttons">
             <div>
-              <button>
-                <DefaultButton buttonText="Get in touch" />
+              <button className="landing-button">
+                <DefaultButton
+                  buttonText="Get in touch"
+                  landingButtonUnderline="landingButtonUnderline"
+                />
               </button>
             </div>
             <div className="pt-5 md:pt-0 md:pl-8">
               <button>
                 <Link to="/investments">
-                  <DefaultButton buttonText="areas we invest in" />
+                  <DefaultButton
+                    buttonText="areas we invest in"
+                    landingButtonUnderline="landingButtonUnderline"
+                  />
                 </Link>
               </button>
             </div>

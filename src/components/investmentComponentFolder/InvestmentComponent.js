@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react"
 import IndividualInvestmentComponent from "./IndividualInvestmentComponent"
-import gsap from "gsap"
 import PreviousNextButtonComponent from "../PreviousNextButtonComponent"
 import { graphql, useStaticQuery } from "gatsby"
-
+import { gsap } from "gsap"
 const InvestmentComponent = props => {
   const [x, setX] = useState(2)
   //   Individual investment component accepts the following:
