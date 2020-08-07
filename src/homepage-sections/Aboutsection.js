@@ -65,7 +65,8 @@ const AboutSection = () => {
         height: "0px",
         duration: duration,
         ease: Power4.easeOut,
-      }
+      },
+      "-=2"
     )
     gsap.to("#overlay-2", {
       scrollTrigger: {
