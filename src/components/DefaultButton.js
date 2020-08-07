@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import { gsap,easeOut } from "gsap"
+import { gsap, Power4 } from "gsap"
 
 const DefaultButton = props => {
   var textColor = "black"
@@ -7,7 +7,7 @@ const DefaultButton = props => {
   let underline = "block"
   let widthOfUnderline = "100%"
   let landingButtonUnderline = ""
-  if (props.landingButtonUnderline == "landingButtonUnderline") {
+  if (props.landingButtonUnderline === "landingButtonUnderline") {
     landingButtonUnderline = "landingButtonUnderline"
     widthOfUnderline = "0"
   }
@@ -33,7 +33,7 @@ const DefaultButton = props => {
       },
       width: widthOfUnderline,
       duration: 1,
-      ease: easeOut,
+      ease: Power4.easeOut,
     })
   })
   // Animations end

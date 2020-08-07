@@ -3,7 +3,7 @@ import gsap from "gsap"
 import IndividualInvestmentComponent from "./investmentComponentFolder/IndividualInvestmentComponent"
 import PreviousNextButtonComponent from "./PreviousNextButtonComponent"
 import { graphql, useStaticQuery } from "gatsby"
-import Layout from "./layout/Layout"
+
 const TeamAtCspComponent = props => {
   const [value, setValue] = useState(0)
   const [x, setX] = useState(2)
@@ -84,6 +84,7 @@ const TeamAtCspComponent = props => {
                 key={index}
                 slug={iteam1.slug}
                 fact="hide"
+                type="team"
                 logoImage={iteam1.pictureOfTheEmployee.fluid}
               />
             )

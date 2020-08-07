@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react"
+import React, { useEffect } from "react"
 import Subtitle from "../components/Subtitle"
 import DefaultButton from "../components/DefaultButton"
 import { graphql, useStaticQuery } from "gatsby"
@@ -46,19 +46,11 @@ const AboutSection = () => {
   `)
   // Animations start
   const duration = 1.5
-  let image1 = useRef(null)
-  let image2 = useRef(null)
-  let image3 = useRef(null)
 
   useEffect(() => {
     let t1 = new TimelineLite()
     let mySplitText = new SplitText("#split-text", { type: "lines" })
     let lines = mySplitText.lines
-
-    // Image variables
-    image1 = image1.current.firstElementChild
-    image2 = image2.current.firstElementChild
-    image3 = image3.current.firstElementChild
 
     t1.staggerFrom(
       lines,
@@ -148,7 +140,7 @@ const AboutSection = () => {
         </div>
         <div className="pt-24 hidden xl:block">
           {/* This image is for xl size */}
-          <div ref={image1} className="relative">
+          <div className="relative">
             <Img
               fluid={data.allContentfulHomePage.nodes[0].image1.fluid}
               alt="Two Beautiful Skyscrapers"
@@ -173,7 +165,7 @@ const AboutSection = () => {
       </div>
       <div className="pr-6 pt-6 xl:w-1/2">
         <div className="relative" id="image-2">
-          <div id="image-2" ref={image2}>
+          <div id="image-2">
             <Img
               fluid={data.allContentfulHomePage.nodes[0].image2.fluid}
               alt="Beautiful Skyscraper again"
@@ -194,7 +186,7 @@ const AboutSection = () => {
         </div>
       </div>
       <div className="pl-6 pt-20 xl:w-1/2">
-        <div className="relative" ref={image3}>
+        <div className="relative">
           <Img
             fluid={data.allContentfulHomePage.nodes[0].image3.fluid}
             alt="Team of CSP"

@@ -92,7 +92,7 @@ const AboutaboutSection = () => {
     t1.to(".landingButtonUnderline", {
       width: "100%",
       duration: 0.5,
-      ease: easeOut,
+      ease: Power4.easeOut,
     })
 
     gsap.to("#about-overlay-2", {

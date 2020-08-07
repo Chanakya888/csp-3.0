@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import DefaultButton from "../DefaultButton"
 import Img from "gatsby-image"
 import { Link } from "gatsby"
-import { gsap, TimelineLite, Power4, easeOut } from "gsap"
+import { gsap, Power4 } from "gsap"
 import { SplitText } from "../../utils/SplitText"
 
 const IndividualInvestmentComponent = props => {
@@ -45,7 +45,7 @@ const IndividualInvestmentComponent = props => {
     })
     split.lines.forEach(element => {
       const line_innerDiv = document.createElement("h1")
-      line_innerDiv.classList.add("line_innerDiv")
+      line_innerDiv.classList.add(`${props.type}-line_innerDiv`)
       line_innerDiv.textContent = element.textContent
       element.textContent = ""
       element.appendChild(line_innerDiv)
@@ -54,6 +54,10 @@ const IndividualInvestmentComponent = props => {
       type: "lines",
     })
     let aboutLines = aboutSplitText.lines
+    let splitTextDes = new SplitText(`#${props.type}-des`, {
+      type: "lines",
+    })
+    let linesDes = splitTextDes.lines
     let t1 = gsap.timeline({
       scrollTrigger: {
         trigger: `#${props.type}-heading`,
@@ -61,30 +65,35 @@ const IndividualInvestmentComponent = props => {
       },
     })
     //making the title visible
-    t1.from(document.querySelectorAll(".line_innerDiv"), 1, {
+    t1.from(document.querySelectorAll(`.${props.type}-line_innerDiv`), 1, {
       opacity: 0,
       ease: Power4.easeOut,
     })
     // bringing up the title
     t1.staggerFrom(
-      document.querySelectorAll(".line_innerDiv"),
+      document.querySelectorAll(`.${props.type}-line_innerDiv`),
       1,
       { y: "100%", ease: Power4.easeOut },
       0.15
     )
     //bringing up about lines
-    t1.staggerFrom(
+    t1.from(
       aboutLines,
       0.75,
       { opacity: 0, y: 20, ease: Power4.easeOut },
-      0.15
+      "-=2"
     )
     //removing overlay
-    t1.to(`#${props.type}-overlay`, {
-      height: 0,
-      duration: 1,
-      ease: Power4.easeOut,
-    })
+    t1.to(
+      `#${props.type}-overlay`,
+      {
+        height: 0,
+        duration: 1,
+        ease: Power4.easeOut,
+      },
+      "-=1"
+    )
+    t1.from(linesDes, 0.75, { opacity: 0, y: 20, ease: Power4.easeOut }, "-=2")
     // t1.to(".external-link", 1, {
     //   drawSVG: 0,
     //   delay: 0.5,
@@ -111,9 +120,14 @@ const IndividualInvestmentComponent = props => {
           </Link>
         </div>
       </div>
-      <p className={`pt-6 w-11/12 md:w-full xl:w-11/12 ${hideDes}`}>
-        {props.companyDes}
-      </p>
+
+      <div
+        className={`height-of-des-div pt-6 w-11/12 md:w-full xl:w-11/12 ${hideDes}`}
+        id={`${props.type}-des`}
+      >
+        <p>{props.companyDes}</p>
+      </div>
+
       <div
         className={`pt-${paddingInTeamComponent} md:pt-${paddingTopInTeamComponent} pl-${paddingLeftInTeamComponent} xl:pl-0 `}
       >
