@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import DefaultButton from "../components/DefaultButton"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import Img from "gatsby-image"
-import { gsap, TimelineLite, Power4, easeOut } from "gsap"
+import { gsap, TimelineLite, Power4 } from "gsap"
 import { SplitText } from "../utils/SplitText"
 
 gsap.registerPlugin(SplitText)
@@ -81,7 +81,7 @@ const AboutaboutSection = () => {
     })
     t1.fromTo(
       "#about-page-buttons",
-      { y: 60, opacity: 0, ease: Power4.easeOut },
+      { y: 20, opacity: 0, ease: Power4.easeOut },
       {
         y: 0,
         opacity: 1,
@@ -134,9 +134,9 @@ const AboutaboutSection = () => {
                 .aboutPageDescription
             }
           </p>
-          <div className="pt-16 md:flex justify-start" id="about-page-buttons">
+          <div className="pt-16 md:flex justify-start">
             <div>
-              <button className="landing-button">
+              <button className="landing-button" id="about-page-buttons">
                 <DefaultButton
                   buttonText="Get in touch"
                   landingButtonUnderline="landingButtonUnderline"
@@ -144,7 +144,7 @@ const AboutaboutSection = () => {
               </button>
             </div>
             <div className="pt-5 md:pt-0 md:pl-8">
-              <button>
+              <button id="about-page-buttons">
                 <Link to="/investments">
                   <DefaultButton
                     buttonText="areas we invest in"

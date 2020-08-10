@@ -65,6 +65,7 @@ const AboutSection = () => {
         height: "0px",
         duration: duration,
         ease: Power4.easeOut,
+        delay: 1,
       },
       "-=2"
     )
