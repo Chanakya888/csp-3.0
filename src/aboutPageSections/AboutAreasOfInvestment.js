@@ -81,11 +81,11 @@ const AboutAreasOfInvestment = () => {
           </div>
         </div>
         <div className="px-6 pt-20">
-          <div className="">
+          <div>
             <Subtitle subtitle="areas of investment" />
           </div>
           <div
-            className="text-4xl leading-h2LineHeight xl:w-9/12"
+            className="text-4xl leading-h2LineHeight xl:w-full"
             id="area-of-investment-text"
           >
             {
