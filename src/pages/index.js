@@ -40,8 +40,8 @@ const IndexPage = () => {
     })
     t1.staggerFrom(
       document.querySelectorAll(".line_innerDiv"),
-      1.5,
-      { y: "100%", ease: Power4.easeOut },
+      1,
+      { y: "100%", ease: Power4.easeOut, delay: 0.25 },
       0.15
     )
   })
@@ -52,7 +52,7 @@ const IndexPage = () => {
           <div id="wrapper">
             <div className="top-padding-for-each-page ">
               <div
-                className="text-6xl width-wrapper leading-h1LineHeight pt-16 capitalize xl:text-7xl xl:leading-7xl hide-text-div"
+                className="text-6xl width-wrapper leading-h1LineHeight pt-5 capitalize xl:text-7xl xl:leading-7xl hide-text-div"
                 id="split-text-Heading"
               >
                 {data.contentfulHomePageMainDescriptionTextNode.mainDescription}

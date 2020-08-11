@@ -32,73 +32,85 @@ const IndividualInvestmentComponent = props => {
   if (props.endId > 9) {
     zeroOrNot = ""
   }
-  console.log("type is ", props.type)
-  //Animations start
-  // let delay = 0
-  // if (props.delay === "delay-them") {
-  //   delay = 1.25
-  // }
-  // useEffect(() => {
-  //   let split = new SplitText(`#${props.type}-heading`, {
-  //     type: "lines",
-  //     linesClass: "line",
-  //   })
-  //   split.lines.forEach(element => {
-  //     const line_innerDiv = document.createElement("h1")
-  //     line_innerDiv.classList.add(`${props.type}-line_innerDiv`)
-  //     line_innerDiv.textContent = element.textContent
-  //     element.textContent = ""
-  //     element.appendChild(line_innerDiv)
-  //   })
-  //   let aboutSplitText = new SplitText(`#${props.type}-subtitle`, {
-  //     type: "lines",
-  //   })
-  //   let aboutLines = aboutSplitText.lines
-  //   let splitTextDes = new SplitText(`#${props.type}-des`, {
-  //     type: "lines",
-  //   })
-  //   let linesDes = splitTextDes.lines
-  //   let t1 = gsap.timeline({
-  //     scrollTrigger: {
-  //       trigger: `#${props.type}-heading`,
-  //       start: "top 96%",
-  //     },
-  //   })
-  //   //making the title visible
-  //   t1.from(document.querySelectorAll(`.${props.type}-line_innerDiv`), 1, {
-  //     opacity: 0,
-  //     ease: Power4.easeOut,
-  //   })
-  //   // bringing up the title
-  //   t1.staggerFrom(
-  //     document.querySelectorAll(`.${props.type}-line_innerDiv`),
-  //     1,
-  //     { y: "100%", ease: Power4.easeOut },
-  //     0.15
-  //   )
-  //   //bringing up about lines
-  //   t1.from(
-  //     aboutLines,
-  //     0.75,
-  //     { opacity: 0, y: 20, ease: Power4.easeOut },
-  //     "-=2"
-  //   )
-  //   //removing overlay
-  //   t1.to(
-  //     `#${props.type}-overlay`,
-  //     {
-  //       height: 0,
-  //       duration: 1,
-  //       ease: Power4.easeOut,
-  //     },
-  //     "-=1"
-  //   )
-  //   t1.from(linesDes, 0.75, { opacity: 0, y: 20, ease: Power4.easeOut }, "-=2")
-  //   // t1.to(".external-link", 1, {
-  //   //   drawSVG: 0,
-  //   //   delay: 0.5,
-  //   // })
-  // })
+  let hideInNonAnimatedPaged = "hidden"
+  if (props.AnimateComponents === "true") {
+    hideInNonAnimatedPaged = "block"
+  }
+  // Animations start
+  let delay = 0
+  if (props.delay === "delay-them") {
+    delay = 1.25
+  }
+
+  useEffect(() => {
+    if (props.AnimateComponents === "true") {
+      let split = new SplitText(`#${props.type}-heading`, {
+        type: "lines",
+        linesClass: "line",
+      })
+      split.lines.forEach(element => {
+        const line_innerDiv = document.createElement("h1")
+        line_innerDiv.classList.add(`${props.type}-line_innerDiv`)
+        line_innerDiv.textContent = element.textContent
+        element.textContent = ""
+        element.appendChild(line_innerDiv)
+      })
+      let aboutSplitText = new SplitText(`#${props.type}-subtitle`, {
+        type: "lines",
+      })
+      let aboutLines = aboutSplitText.lines
+      let splitTextDes = new SplitText(`#${props.type}-des`, {
+        type: "lines",
+      })
+      let linesDes = splitTextDes.lines
+      let t1 = gsap.timeline({
+        scrollTrigger: {
+          trigger: `#${props.type}-heading`,
+          start: "top 96%",
+        },
+      })
+      //making the title visible
+      t1.from(document.querySelectorAll(`.${props.type}-line_innerDiv`), 1, {
+        opacity: 0,
+        ease: Power4.easeOut,
+      })
+      // bringing up the title
+      t1.staggerFrom(
+        document.querySelectorAll(`.${props.type}-line_innerDiv`),
+        1,
+        { y: "100%", ease: Power4.easeOut },
+        0.15
+      )
+      //bringing up about lines
+      t1.from(
+        aboutLines,
+        0.75,
+        { opacity: 0, y: 20, ease: Power4.easeOut },
+        "-=2"
+      )
+      //removing overlay
+      t1.to(
+        `#${props.type}-overlay`,
+        {
+          height: 0,
+          duration: 1,
+          ease: Power4.easeOut,
+        },
+        "-=1"
+      )
+      t1.from(
+        linesDes,
+        0.75,
+        { opacity: 0, y: 20, ease: Power4.easeOut },
+        "-=2"
+      )
+      // t1.to(".external-link", 1, {
+      //   drawSVG: 0,
+      //   delay: 0.5,
+      // })
+    }
+  })
+
   return (
     <div
       id={`${props.type}`}
@@ -123,8 +135,8 @@ const IndividualInvestmentComponent = props => {
 
       <div
         className={`height-of-des-div pt-6 w-11/12 md:w-full xl:w-11/12 ${hideDes}`}
+        id={`${props.type}-des`}
       >
-        {/* id={`${props.type}-des`} */}
         <p>{props.companyDes}</p>
       </div>
 
@@ -171,10 +183,10 @@ const IndividualInvestmentComponent = props => {
             className="investment-image"
             fluid={props.logoImage}
           />
-          {/* <div
-            className="investment-rectangle"
+          <div
+            className={`investment-rectangle ${hideInNonAnimatedPaged}`}
             id={`${props.type}-overlay`}
-          ></div> */}
+          ></div>
         </div>
         <div className={`flex justify-end pt-5 md:hidden ${disableCount}`}>
           <DefaultButton buttonText={`${props.buttonText}`} />

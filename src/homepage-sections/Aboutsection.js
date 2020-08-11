@@ -15,17 +15,12 @@ const AboutSection = () => {
     query {
       allContentfulHomePage {
         nodes {
-          image1 {
+          homePageImage1 {
             fluid {
               ...GatsbyContentfulFluid
             }
           }
-          image2 {
-            fluid {
-              ...GatsbyContentfulFluid
-            }
-          }
-          image3 {
+          homePageImage2 {
             fluid {
               ...GatsbyContentfulFluid
             }
@@ -58,16 +53,16 @@ const AboutSection = () => {
       { opacity: 0, y: 20, ease: Power4.easeOut, delay: 2 },
       0.15
     )
-    t1.fromTo(
+    t1.to(
       "#overlay-1",
-      { height: "500px" },
+
       {
         height: "0px",
         duration: duration,
         ease: Power4.easeOut,
         delay: 1,
       },
-      "-=2"
+      "-=1"
     )
     gsap.to("#overlay-2", {
       scrollTrigger: {
@@ -125,7 +120,7 @@ const AboutSection = () => {
             </p>
           </div>
           {/* buttons */}
-          <div className="pt-16 w-auto inline-block md:flex md:justify-start">
+          <div className="pt-10 w-auto inline-block md:flex md:justify-start">
             <div className="w-auto inline-block ">
               <button>
                 <DefaultButton buttonText="get in touch" />
@@ -140,11 +135,11 @@ const AboutSection = () => {
             </div>
           </div>
         </div>
-        <div className="pt-24 hidden xl:block">
+        <div className="pt-20 hidden xl:block">
           {/* This image is for xl size */}
           <div className="relative">
             <Img
-              fluid={data.allContentfulHomePage.nodes[0].image1.fluid}
+              fluid={data.allContentfulHomePage.nodes[0].homePageImage1.fluid}
               alt="Two Beautiful Skyscrapers"
               imgStyle={{ objectFit: "cover" }}
               className="homepage-image"
@@ -158,18 +153,18 @@ const AboutSection = () => {
         <div className="pl-6 pt-20 xl:w-1/2  xl:hidden">
           {/* This image is till lg size */}
           <Img
-            fluid={data.allContentfulHomePage.nodes[0].image1.fluid}
+            fluid={data.allContentfulHomePage.nodes[0].homePageImage1.fluid}
             alt="Two Beautiful Skyscrapers"
             imgStyle={{ objectFit: "cover" }}
             className="homepage-image"
           />
         </div>
       </div>
-      <div className="pr-6 pt-6 xl:w-1/2">
+      <div className="pr-6 pt-6 xl:pt-0 xl:w-1/2">
         <div className="relative" id="image-2">
           <div id="image-2">
             <Img
-              fluid={data.allContentfulHomePage.nodes[0].image2.fluid}
+              fluid={data.allContentfulHomePage.nodes[0].homePageImage2.fluid}
               alt="Beautiful Skyscraper again"
               imgStyle={{ objectFit: "cover" }}
               className="homepage-image"
@@ -178,24 +173,12 @@ const AboutSection = () => {
           <div className="overlay-rectangle" id="overlay-2"></div>
         </div>
       </div>
-
-      <div className="pt-24 width-wrapper pr-8 xl:pt-40 xl:w-4/6 ">
+      <div className="pt-32 width-wrapper pr-8 xl:pt-20 xl:w-4/5 ">
         <div className="text-4xl" id="split-text-subheading">
           {
             data.allContentfulHomePageMainSecondaryDescriptionTextNode.nodes[0]
               .mainSecondaryDescription
           }
-        </div>
-      </div>
-      <div className="pl-6 pt-20 xl:w-1/2">
-        <div className="relative">
-          <Img
-            fluid={data.allContentfulHomePage.nodes[0].image3.fluid}
-            alt="Team of CSP"
-            imgStyle={{ objectFit: "cover" }}
-            className="homepage-image"
-          />
-          <div className="overlay-rectangle" id="overlay-3"></div>
         </div>
       </div>
     </div>

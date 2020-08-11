@@ -148,7 +148,6 @@ const InvestmentComponent = props => {
                 key={index}
                 slug={idata.slug}
                 logoImage={idata.investmentLogo.fluid}
-                type={"investment"}
               />
             )
           })}

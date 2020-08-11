@@ -8,7 +8,7 @@ const Subtitle = props => {
   var display = "block"
   var color = "secondary"
   var opacity = "100"
-  var pb = "12"
+  var pb = "10"
   if (props.display === "hidden") {
     display = "hidden"
   }

@@ -10,10 +10,10 @@ const ContactDetails = () => {
           <Subtitle subtitle="by phone" display="hidden" color="black" />
           <div className="flex justify-start md:flex-col">
             <a href="tel:+6598764321">
-              <h1 className="text-xl">+65 9876 4321</h1>
+              <h1 className="text-xl">+65 6202 4737</h1>
             </a>
             <a href="tel:+6598764321">
-              <h1 className="text-xl pl-4 md:pl-0">+65 9876 4321</h1>
+              <h1 className="text-xl pl-4 md:pl-0">+65 6491 5902</h1>
             </a>
           </div>
         </div>

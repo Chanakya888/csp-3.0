@@ -49,8 +49,8 @@ const Team = () => {
     })
     t1.staggerFrom(
       document.querySelectorAll(".line_innerDiv"),
-      1.5,
-      { y: "100%", ease: Power4.easeOut },
+      1,
+      { y: "100%", ease: Power4.easeOut, delay: 0.25 },
       0.15
     )
     t1.staggerFrom(
@@ -95,6 +95,8 @@ const Team = () => {
                   makeWidthFull={"make-width-full"}
                   disableCount={"disable-count"}
                   slug={iteam1.slug}
+                  AnimateComponents="true"
+                  type="team"
                 />
               )
             })}

@@ -18,6 +18,9 @@ const Investments = () => {
               ...GatsbyContentfulFluid
             }
           }
+          investmentParagraph {
+            investmentParagraph
+          }
           id
           mergeExitTitle
           investmentWebsiteLink
@@ -44,16 +47,15 @@ const Investments = () => {
       type: "lines",
     })
     let aboutLines = aboutSplitText.lines
-    t1.from(document.querySelectorAll(".line_innerDiv"), 1, {
+    t1.from(document.querySelectorAll(".line_innerDiv"), {
       opacity: 0,
-      ease: Power4.easeOut,
+      duration: 1,
     })
-    t1.staggerFrom(
-      document.querySelectorAll(".line_innerDiv"),
-      1.5,
-      { y: "100%", ease: Power4.easeOut },
-      0.15
-    )
+    t1.staggerFrom(document.querySelectorAll(".line_innerDiv"), 1, {
+      y: "100%",
+      ease: Power4.easeOut,
+      delay: 0.15,
+    })
     t1.staggerFrom(
       aboutLines,
       1,
@@ -90,12 +92,14 @@ const Investments = () => {
                 <IndividualInvestmentComponent
                   customer={idata.mergeExitTitle}
                   company={idata.investmentName}
+                  companyDes={idata.investmentParagraph.investmentParagraph}
                   key={index}
                   slug={idata.slug}
                   logoImage={idata.investmentLogo.fluid}
                   makeWidthFull={"make-width-full"}
                   disableCount={"disable-count"}
-                  InvestmentsPage={"true"}
+                  AnimateComponents="true"
+                  type="investment"
                 />
               )
             })}

@@ -96,7 +96,7 @@ const AboutAreasOfInvestment = () => {
         </div>
       </div>
       <div className="px-6 xl:pt-40">
-        <div className="pt-16">
+        <div className="pt-16 xl:pt-0">
           <InvestmentComponent />
         </div>
         <div className="pt-20 xl:pt-42">
@@ -107,7 +107,7 @@ const AboutAreasOfInvestment = () => {
         </div>
       </div>
       <div>
-        <WhoWeAreSection hideButtons="hide" />
+        {/* <WhoWeAreSection hideButtons="hide" /> */}
         <div className="">
           <TeamAtCspSection />
         </div>

@@ -21,6 +21,10 @@ h1 {
   margin-bottom: 1px;
   overflow: hidden;
 }
+.hide-heading {
+  margin-bottom: 1px;
+  overflow: hidden;
+}
 h2 {
   font-family: SchynderCondensed;
 }
@@ -209,7 +213,7 @@ input {
   }
   .width-wrapper {
     @apply pl-48;
-    @apply pr-32;
+    @apply pr-20;
   }
   .width-wrapper-fullscreen {
     @apply px-10;
