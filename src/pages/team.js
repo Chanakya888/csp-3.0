@@ -76,10 +76,9 @@ const Team = () => {
             className="pt-16 paragraph-width-container md:w-8/12"
             id="team-page-landing-split-text"
           >
-            We are a private equity investment firm investing across
-            telecommunications, media & technology, healthcare, consumer and
-            business services sectors with footprints across south east Asia and
-            India.
+            An introduction of your team of around 5 to 6 lines will go here.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio,
+            suscipit!lorem10
           </p>
         </div>
         <div className="top-padding-for-each-page px-6 ">

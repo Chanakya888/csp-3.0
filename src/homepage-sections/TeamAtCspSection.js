@@ -8,8 +8,8 @@ const InvestmentSection = () => {
       <div className="xl:pl-40">
         <Subtitle subtitle="team at csp" />
         <p className="pt-4 xl:w-2/5">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque
+          Content about team here, an introduction paragraph of your team of
+          around 3lines will go here.
         </p>
       </div>
       <div className="pt-20">
