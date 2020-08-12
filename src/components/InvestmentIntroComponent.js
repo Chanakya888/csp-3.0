@@ -36,7 +36,7 @@ const InvestmentIntroComponent = props => {
             </div>
           </div>
           <div className="pt-24">
-            <Subtitle subtitle="experience" pb="null" />
+            <Subtitle subtitle="About the investment" pb="null" />
             <div className="richtext pt-5">{aboutTheInvestment}</div>
           </div>
           <div className="pt-24 md:hidden">
