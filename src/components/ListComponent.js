@@ -7,8 +7,8 @@ const ListComponent = props => {
       {listArray[0].props.children.map((item, index) => {
         return (
           <div className="flex pt-5" key={index}>
-            <div className="height-and-width-of-hifen bg-secondary mt-3"></div>
-            <div className="pl-2">
+            {/* <div className="height-and-width-of-hifen bg-secondary mt-3"></div> */}
+            <div className="">
               <div className="paragraph-width-container-for-templates ">
                 {item}
               </div>

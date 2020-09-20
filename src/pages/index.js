@@ -9,8 +9,9 @@ import InvestmentSection from "../homepage-sections/InvestmentSection"
 import FactsAndFiguresSection from "../homepage-sections/FactsAndFiguresSection"
 import TeamAtCspSection from "../homepage-sections/TeamAtCspSection"
 import GeneralQuestionSection from "../homepage-sections/GeneralQuestionSection"
-import { TimelineLite, Power4 } from "gsap"
+import { TimelineLite, gsap } from "gsap"
 import { SplitText } from "../utils/SplitText"
+import { element } from "prop-types"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -25,25 +26,23 @@ const IndexPage = () => {
     let t1 = new TimelineLite()
     let split = new SplitText("#split-text-Heading", {
       type: "lines",
-      linesClass: "line",
+      linesClass: "split-line-heading",
     })
     split.lines.forEach(element => {
       const line_innerDiv = document.createElement("h1")
-      line_innerDiv.classList.add("line_innerDiv")
+      line_innerDiv.classList.add("split-line-heading")
       line_innerDiv.textContent = element.textContent
       element.textContent = ""
       element.appendChild(line_innerDiv)
     })
-    t1.from(document.querySelectorAll(".line_innerDiv"), 1, {
-      opacity: 0,
-      ease: Power4.easeOut,
+    gsap.set(".split-line-heading", { y: 100 })
+    gsap.to(".split-line-heading", {
+      duration: 0.75,
+      y: 0,
+      stagger: 0.1,
+      ease: "easeOut",
+      delay: 1,
     })
-    t1.staggerFrom(
-      document.querySelectorAll(".line_innerDiv"),
-      1,
-      { y: "100%", ease: Power4.easeOut, delay: 0.25 },
-      0.15
-    )
   })
   return (
     <div className="bg-primary">

@@ -20,8 +20,10 @@ const TeamMemberIntroComponent = props => {
             fluid={props.pictureOfTheEmployee}
           ></Img>
           <div className="pt-24 hidden md:block">
-            <Subtitle subtitle="education" pb="null" />
-            <ListComponent listArray={education} />
+            <Subtitle subtitle="Personal Goals" pb="null" />
+            {/* For bigger screens */}
+            {/* <ListComponent listArray={education} /> */}
+            <p>Content is pending here</p>
           </div>
         </div>
         <div className="md:pr-6 md:w-1/2">
@@ -33,10 +35,13 @@ const TeamMemberIntroComponent = props => {
           <div className="pt-24">
             <Subtitle subtitle="experience" pb="null" />
             <ListComponent listArray={experience} />
+            <ListComponent listArray={education} />
           </div>
+          {/* for small screens */}
           <div className="pt-24 md:hidden">
             <Subtitle subtitle="education" pb="null" />
-            <ListComponent listArray={education} />
+            {/* <ListComponent listArray={education} /> */}
+            <p>Content is pending here</p>
           </div>
         </div>
       </div>

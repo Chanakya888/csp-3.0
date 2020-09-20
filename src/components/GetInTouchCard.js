@@ -13,7 +13,9 @@ const GetInTouchCard = () => {
           accusantium doloremque
         </p>
         <button className="pt-12">
-          <DefaultButton buttonText="get in touch with us" color="white" />
+          <a href="#GetInTouch">
+            <DefaultButton buttonText="get in touch with us" color="white" />
+          </a>
         </button>
       </div>
     </div>

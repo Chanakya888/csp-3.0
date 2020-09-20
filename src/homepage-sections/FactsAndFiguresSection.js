@@ -6,7 +6,7 @@ const FactsAndFiguresSection = () => {
   return (
     <div className="pt-32 px-6 md:px-10  xl:pt-40">
       <div className="xl:pl-40">
-        <Subtitle subtitle="facts and figures" />
+        <Subtitle subtitle="CSP in the press" />
       </div>
       <FactsAndFiguresComponent />
     </div>

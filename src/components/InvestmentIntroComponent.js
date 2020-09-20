@@ -3,6 +3,7 @@ import Img from "gatsby-image"
 import Subtitle from "./Subtitle"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import ListComponent from "./ListComponent"
+import DefaultButton from "./DefaultButton"
 const InvestmentIntroComponent = props => {
   const investmentParagraph = props.investmentParagraph.investmentParagraph
   const announcements = documentToReactComponents(props.announcements.json)
@@ -33,9 +34,14 @@ const InvestmentIntroComponent = props => {
           <div>
             <div className="pt-6 paragraph-width-container-for-templates">
               <p>{investmentParagraph}</p>
+              <div className="xl:pt-8">
+                <a href="">
+                  <DefaultButton buttonText="Visit the investment" />
+                </a>
+              </div>
             </div>
           </div>
-          <div className="pt-24">
+          <div className="pt-20">
             <Subtitle subtitle="About the investment" pb="null" />
             <div className="richtext pt-5">{aboutTheInvestment}</div>
           </div>

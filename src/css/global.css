@@ -14,6 +14,9 @@
   font-weight: bold;
   -webkit-font-smoothing: antialiased;
 }
+html {
+  scroll-behavior: smooth;
+}
 h1 {
   font-family: SchynderCondensed;
 }
@@ -148,8 +151,12 @@ input {
 #split-text-subheading {
   width: 100%;
 }
+.split-line-heading {
+  overflow: hidden;
+}
 .line_innerDiv {
   width: 100%;
+  overflow: hidden;
 }
 .height-of-des-div {
   height: 70px;

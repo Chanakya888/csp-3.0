@@ -9,7 +9,7 @@ const MapComponent = () => {
     zoom: 10,
     minzoom: 9,
     maxzoom: 10,
-    width: "300px",
+    width: "500px",
     height: "400px",
   })
 
@@ -32,7 +32,7 @@ const MapComponent = () => {
         onViewportChange={viewport => setViewport(viewport)}
       >
         <div
-          className="w-40 h-auto absolute mt-20 ml-16 bg-white "
+          className="w-40 h-auto absolute mt-20 ml-40 bg-white "
           id="address-box"
         >
           <p className="text-sm p-3">

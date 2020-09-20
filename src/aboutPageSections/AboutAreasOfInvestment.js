@@ -101,7 +101,7 @@ const AboutAreasOfInvestment = () => {
         </div>
         <div className="pt-20 xl:pt-42">
           <div className="xl:pl-42">
-            <Subtitle subtitle="awards and achievements" />
+            <Subtitle subtitle="CSP in the press" />
           </div>
           <FactsAndFiguresComponent />
         </div>

@@ -53,14 +53,6 @@ const FooterForm = () => {
           placeholder="Your email here"
           className="pt-12 w-full bg-primary border-b-2 focus:border-secondary focus:text-secondary"
         />
-        <div>
-          <p className="pt-2 text-sm opacity-100 h-16 md:hidden">{value}</p>
-          <div className="flex justify-end md:pt-6">
-            <button>
-              <DefaultButton buttonText="add attachment" />
-            </button>
-          </div>
-        </div>
 
         <input
           type="text"

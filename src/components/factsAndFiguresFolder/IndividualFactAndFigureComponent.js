@@ -1,4 +1,5 @@
 import React from "react"
+import DefaultButton from "../DefaultButton"
 
 const IndividualFactAndFigureComponent = props => {
   return (
@@ -9,16 +10,19 @@ const IndividualFactAndFigureComponent = props => {
       >
         <div className="absolute top-0 left-0 pt-12 pl-8 md:pl-8">
           <p className="subtitle-text investment-customer-text">{props.date}</p>
-          <h1
-            className="text-5xl md:text-6xl pt-4"
-            style={{ color: "#00276F" }}
-          >
-            {props.amount}
-          </h1>
           <div className="">
-            <p className="pt-6 pb-10 w-64 xl:w-64 overflow-hidden">
-              {props.fafDes}
+            {/* {props.fafDes} */}
+            <p
+              className="pt-8 pr-8 overflow-hidden"
+              style={{ height: "180px" }}
+            >
+              Text for this part is pending, This text includes a small intro of
+              the source that links to the source. Text for this part is
+              pending, This text includes a small intro of the source that links
             </p>
+          </div>
+          <div className="">
+            <DefaultButton buttonText="View source" />
           </div>
         </div>
       </div>
