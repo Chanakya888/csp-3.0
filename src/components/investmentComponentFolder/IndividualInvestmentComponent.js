@@ -144,13 +144,13 @@ const IndividualInvestmentComponent = props => {
         className={`pt-${paddingInTeamComponent} md:pt-${paddingTopInTeamComponent} pl-${paddingLeftInTeamComponent} xl:pl-0 `}
       >
         <div className={`flex justify-between ${disableCount}`}>
-          <div className="flex justify-start">
-            <h2 className="text-2xl">{props.presentId}</h2>
-            {/* <h2
+          {/* <div className="flex justify-start">
+            <h2 className="text-2xl">{props.presentId}</h2> */}
+          {/* <h2
               className="text-2xl pl-1"
               style={{ color: "#B2B2C1" }}
             >{`/${zeroOrNot}${props.endId}`}</h2> */}
-          </div>
+          {/* </div> */}
           <div className="flex justify-end inline-block md:hidden">
             <button
               id="previous"
