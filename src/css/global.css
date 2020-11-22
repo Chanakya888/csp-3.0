@@ -195,11 +195,24 @@ input {
 }
 
 .height-of-des-div {
-  height: 70px;
+  height: 106px;
+  overflow: hidden;
 }
 
 .line {
   width: 100%;
+}
+
+.white-container-height {
+  height: 350px;
+}
+
+.view-source-button {
+  padding-top: 10px
+}
+
+.investment-p-height-container {
+  height: 200px;
 }
 
 /* .map {
@@ -259,6 +272,18 @@ input {
   .width-wrapper {
     @apply pr-20;
   }
+
+  .white-container-height {
+    height: 330px;
+  }
+
+  .view-source-button {
+    padding-top: 0px
+  }
+
+  .investment-p-height-container {
+    height: 180px;
+  }
 }
 
 /* xl screen */
@@ -293,4 +318,6 @@ input {
     @apply absolute;
     bottom: 0;
   }
+
+
 }

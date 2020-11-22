@@ -12,6 +12,7 @@ import GeneralQuestionSection from '../homepage-sections/GeneralQuestionSection'
 import { TimelineLite, gsap } from 'gsap';
 import { SplitText } from '../utils/SplitText';
 import { element } from 'prop-types';
+import CspInThePressSection from '../homepage-sections/CspInThePressSection';
 
 const IndexPage = () => {
 	const data = useStaticQuery(graphql`
@@ -58,7 +59,7 @@ const IndexPage = () => {
 						</div>
 						<div>
 							<InvestmentSection />
-							<FactsAndFiguresSection />
+							<CspInThePressSection />
 							<TeamAtCspSection />
 							<GeneralQuestionSection />
 						</div>
